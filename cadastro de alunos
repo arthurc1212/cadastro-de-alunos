@@ -1,0 +1,44 @@
+alunos = []
+
+def adicionar_aluno():
+    nome = input("Digite o nome do aluno: ")
+    matricula = input("Digite a matrícula do aluno: ")
+    aluno = {"nome": nome, "matricula": matricula}
+    alunos.append(aluno)
+    print("Aluno adicionado com sucesso!\n")
+
+def listar_alunos():
+    print("\nLista de Alunos:")
+    for i, aluno in enumerate(alunos):
+        print(f"{i+1}. {aluno['nome']} - Matrícula: {aluno['matricula']}")
+    print()
+
+def remover_aluno():
+    listar_alunos()
+    indice = int(input("Digite o número do aluno que deseja remover: ")) - 1
+    if 0 <= indice < len(alunos):
+        alunos.pop(indice)
+        print("Aluno removido com sucesso!\n")
+    else:
+        print("Índice inválido.\n")
+
+def menu():
+    while True:
+        print("1. Adicionar aluno")
+        print("2. Listar alunos")
+        print("3. Remover aluno")
+        print("4. Sair")
+        opcao = input("Escolha uma opção: ")
+        
+        if opcao == '1':
+            adicionar_aluno()
+        elif opcao == '2':
+            listar_alunos()
+        elif opcao == '3':
+            remover_aluno()
+        elif opcao == '4':
+            break
+        else:
+            print("Opção inválida.\n")
+
+menu()
